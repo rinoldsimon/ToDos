@@ -73,3 +73,11 @@ input[type="checkbox"] {
 .margin-r-4 {
   margin-right: 4px;
 }
+
+.ember-notify-default .ember-notify .close {
+  padding-bottom: 3px;
+}
+
+.ember-notify-default .ember-notify {
+  padding: 16px 25px 8px 25px;
+}

@@ -6,7 +6,7 @@
     <hr>
     <div class="form-inline">
       {{input class="form-control" required=true type="text" placeholder="Add new item" value=description}}
-      <button class="btn btn-light" type="submit">
+      <button class="btn btn-dark" type="submit">
         Add
       </button>
     </div>
@@ -25,7 +25,7 @@
             <span>{{todo.description}}</span>
           </div>
           <div class="col-md-4">
-            <button class="btn btn-light" {{action "editTodo" todo}}>Edit</button>
+            <button class="btn btn-dark" {{action "editTodo" todo}}>Edit</button>
             <button class="btn btn-light" {{action (route-action "deleteTodo" todo)}}>Delete</button>
           </div>
         </div>
@@ -47,7 +47,7 @@
             <s>{{todo.description}}</s>
           </div>
           <div class="col-md-4">
-            <button class="btn btn-light" {{action "editTodo" todo}}>Edit</button>
+            <button class="btn btn-dark" {{action "editTodo" todo}}>Edit</button>
             <button class="btn btn-light" {{action (route-action "deleteTodo" todo)}}>Delete</button>
           </div>
         </div>

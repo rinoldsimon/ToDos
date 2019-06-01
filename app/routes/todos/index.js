@@ -1,6 +1,8 @@
 import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 
 export default Route.extend({
+  notify: service(),
   model() {
     return this.store.findAll('todo');
   },
@@ -11,15 +13,22 @@ export default Route.extend({
       }).save();
       let controller = this.controllerFor('todos.index');
       controller.set('description', '');
+      this.notify.success('Item Added');
     },
     deleteTodo(todo) {
       todo.deleteRecord();
-      todo.save();
+      todo.save().then(() => {
+        this.notify.error('Item Deleted');
+      });
     },
     toggleTodo(todo) {
       let isDone = todo.get('isDone');
       todo.set('isDone', !isDone);
-      todo.save();
+      todo.save().then(() => {
+        if (!isDone) {
+          this.notify.success('Item Completed');
+        }
+      });
     }
   }
 });
