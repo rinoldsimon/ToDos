@@ -1,6 +1,6 @@
 # todos
 
-A simple todo app using Ember.js 
+A simple todo app using Ember.js, where one can Add/Edit/Delete/Complete tasks. 
 
 [DEMO](https://ember-to-do-list.herokuapp.com/todos)
 
