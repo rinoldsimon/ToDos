@@ -1,6 +1,8 @@
 # todos
 
-A simple todo app using Ember.js
+A simple todo app using Ember.js 
+
+[DEMO](https://ember-to-do-list.herokuapp.com/todos)
 
 ## Prerequisites
 
