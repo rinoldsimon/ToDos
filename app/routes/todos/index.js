@@ -9,14 +9,15 @@ export default Route.extend({
       this.store.createRecord('todo', {
         description
       }).save();
-      let controller = this.controllerFor('todos');
+      let controller = this.controllerFor('todos.index');
       controller.set('description', '');
     },
     deleteTodo(todo) {
       todo.deleteRecord();
-      todo.save().then(() => {
-        this.transitionTo('todos');
-      });
+      todo.save();
+      // todo.save().then(() => {
+      //   this.transitionTo('todos');
+      // });
     },
     toggleTodo(todo) {
       let isDone = todo.get('isDone');
