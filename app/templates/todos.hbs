@@ -1,0 +1,61 @@
+<h2 class="text-center">ToDos</h2>
+<br>
+<div class="container">
+  <form {{action (route-action "addTodo" description) on="submit"}}>
+    <h4>ADD ITEM</h4>
+    <hr>
+    <div class="form-inline">
+      {{input class="form-control" required=true type="text" placeholder="Add new item" value=description}}
+      <button class="btn btn-light" type="submit">
+        Add
+      </button>
+    </div>
+  </form>
+</div>
+<br>
+<div class="container">
+  <h4>TODO</h4>
+  <hr>
+  <div class="list-group">
+    {{#each model as |todo|}}
+      {{#unless todo.isDone}}
+        <div class="row">
+          <div class="list-group-item col-md-8">
+            {{one-way-checkbox checked=todo.isDone update=(action (route-action "toggleTodo" todo))}}
+            <span>{{todo.description}}</span>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-light" {{action "editTodo" todo}}>Edit</button>
+            <button class="btn btn-light" {{action (route-action "deleteTodo" todo)}}>Delete</button>
+          </div>
+        </div>
+      {{/unless}}
+    {{/each}}
+  </div>
+</div>
+<br>
+
+<div class="container">
+  <h4>COMPLETED</h4>
+  <hr>
+  <div class="list-group">
+    {{#each model as |todo|}}
+      {{#if todo.isDone}}
+        <div class="row">
+          <div class="list-group-item col-md-8">
+            {{one-way-checkbox checked=todo.isDone update=(action (route-action "toggleTodo" todo))}}
+            <s>{{todo.description}}</s>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-light" {{action "editTodo" todo}}>Edit</button>
+            <button class="btn btn-light" {{action (route-action "deleteTodo" todo)}}>Delete</button>
+          </div>
+        </div>
+      {{/if}}
+    {{/each}}
+  </div>
+</div>
+
+<div class="container">
+  {{outlet}}
+</div>

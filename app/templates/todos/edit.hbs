@@ -1,0 +1,9 @@
+<form {{action (route-action "saveEdit" todo todo.description) on="submit"}}>
+  <h4>EDIT ITEM</h4>
+  <hr>
+  <div class="form-inline">
+    {{input class="form-control" required=true type="text" placeholder="Edit item" value=todo.description}}
+    <button class="btn btn-light margin-r-4" type="submit">Save</button>
+    <button class="btn btn-light" {{action (route-action "cancelEdit" todo)}}>Cancel</button>
+  </div>
+</form>
