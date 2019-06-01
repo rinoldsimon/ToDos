@@ -81,3 +81,20 @@ input[type="checkbox"] {
 .ember-notify-default .ember-notify {
   padding: 16px 25px 8px 25px;
 }
+
+.list-group-item span:first-child {
+  width: 20px;
+}
+
+.list-group-item span:last-child {
+  width: 90%;
+}
+
+.list-group-item span {
+  display: inline-block;
+  vertical-align: text-top;
+}
+
+.list-group-item:first-child {
+  height: auto;
+}
