@@ -15,9 +15,6 @@ export default Route.extend({
     deleteTodo(todo) {
       todo.deleteRecord();
       todo.save();
-      // todo.save().then(() => {
-      //   this.transitionTo('todos');
-      // });
     },
     toggleTodo(todo) {
       let isDone = todo.get('isDone');
