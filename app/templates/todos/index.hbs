@@ -23,6 +23,8 @@
           <div class="list-group-item col-md-8">
             <span>
               {{one-way-checkbox checked=todo.isDone update=(action (route-action "toggleTodo" todo))}}
+            </span>
+            <span>
               {{todo.description}}
             </span>
           </div>
@@ -47,6 +49,8 @@
           <div class="list-group-item col-md-8">
             <span>
               {{one-way-checkbox checked=todo.isDone update=(action (route-action "toggleTodo" todo))}}
+            </span>
+            <span>
               <s>{{todo.description}}</s>
             </span>
           </div>

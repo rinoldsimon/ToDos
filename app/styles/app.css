@@ -74,12 +74,14 @@ input[type="checkbox"] {
   margin-right: 4px;
 }
 
-.ember-notify-default .ember-notify .close {
-  padding-bottom: 3px;
+.ember-notify-default .ember-notify {
+  padding: 15px;
 }
 
-.ember-notify-default .ember-notify {
-  padding: 16px 25px 8px 25px;
+.ember-notify-default .ember-notify .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
 }
 
 .list-group-item span:first-child {
@@ -97,4 +99,10 @@ input[type="checkbox"] {
 
 .list-group-item:first-child {
   height: auto;
+  word-break: break-all;
+}
+
+div .list-group-item {
+  margin-bottom: 3px;
+  padding-bottom: 7px;
 }
