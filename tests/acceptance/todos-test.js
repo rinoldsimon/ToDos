@@ -24,4 +24,17 @@ module('Acceptance | todos', function(hooks) {
     await click('button.t-todo-delete-item-1');
     assert.equal(this.element.querySelector('.t-todo-list-group').children.length, 1);
   });
+
+  test('complete an item', async function(assert) {
+    await visit('/todos');
+    await click('span.t-checkbox-todo-list-item-0 input');
+    assert.equal(this.element.querySelector('.t-completed-list-group').children.length, 1);
+  });
+
+  test('incomplete an item', async function(assert) {
+    await visit('/todos');
+    await click('span.t-checkbox-todo-list-item-0 input');
+    await click('span.t-checkbox-completed-list-item-0 input');
+    assert.equal(this.element.querySelector('.t-todo-list-group').children.length, 2);
+  });
 });

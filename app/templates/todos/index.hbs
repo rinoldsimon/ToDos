@@ -21,7 +21,7 @@
       {{#unless todo.isDone}}
         <div class="row">
           <div class="list-group-item col-md-8">
-            <span>
+            <span class="t-checkbox-todo-list-item-{{index}}">
               {{one-way-checkbox checked=todo.isDone update=(action (route-action "toggleTodo" todo))}}
             </span>
             <span class="t-todo-list-item-{{index}}">
@@ -43,11 +43,11 @@
   <h4>COMPLETED</h4>
   <hr>
   <div class="list-group t-completed-list-group">
-    {{#each model as |todo|}}
+    {{#each model as |todo index|}}
       {{#if todo.isDone}}
         <div class="row">
           <div class="list-group-item col-md-8">
-            <span>
+            <span class="t-checkbox-completed-list-item-{{index}}">
               {{one-way-checkbox checked=todo.isDone update=(action (route-action "toggleTodo" todo))}}
             </span>
             <span class="t-completed-list-item-{{index}}">
