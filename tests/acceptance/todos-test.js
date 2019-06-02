@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { visit, currentURL, click, fillIn } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import { setupMirage } from 'ember-cli-mirage/test-support';
+import { later } from '@ember/runloop';
 
 module('Acceptance | todos', function(hooks) {
   setupApplicationTest(hooks);
@@ -35,6 +36,18 @@ module('Acceptance | todos', function(hooks) {
     await visit('/todos');
     await click('span.t-checkbox-todo-list-item-0 input');
     await click('span.t-checkbox-completed-list-item-0 input');
-    assert.equal(this.element.querySelector('.t-todo-list-group').children.length, 2);
+    later(() => {
+      assert.equal(this.element.querySelector('.t-todo-list-group').children.length, 2);
+    }, 3000);
+  });
+
+   test('edit an item', async function(assert) {
+    await visit('/todos');
+    await click('button.t-todo-edit-item-1');
+    await fillIn('input.t-edit-item', 'Edit test case');
+    await click('button.t-edit-item-submit');
+    later(() => {
+      assert.equal(this.element.querySelector('.t-todo-list-item-1').textContent.trim(), 'Edit test case');
+    }, 3000);
   });
 });
