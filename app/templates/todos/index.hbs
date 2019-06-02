@@ -5,8 +5,8 @@
     <h4>ADD ITEM</h4>
     <hr>
     <div class="form-inline">
-      {{input class="form-control" required=true type="text" placeholder="Add new item" value=description}}
-      <button class="btn btn-dark" type="submit">
+      {{input class="form-control t-add-item" required=true type="text" placeholder="Add new item" value=description}}
+      <button class="btn btn-dark t-add-item-submit" type="submit">
         Add
       </button>
     </div>
@@ -17,14 +17,14 @@
   <h4>TODO</h4>
   <hr>
   <div class="list-group">
-    {{#each model as |todo|}}
+    {{#each model as |todo index|}}
       {{#unless todo.isDone}}
         <div class="row">
           <div class="list-group-item col-md-8">
             <span>
               {{one-way-checkbox checked=todo.isDone update=(action (route-action "toggleTodo" todo))}}
             </span>
-            <span>
+            <span class="t-list-item-{{index}}">
               {{todo.description}}
             </span>
           </div>

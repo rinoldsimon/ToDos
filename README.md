@@ -1,6 +1,6 @@
 # todos
 
-A simple todo app using Ember.js, where one can Add/Edit/Delete/Complete tasks. 
+A simple todo app using Ember.js, where one can Add/Edit/Delete/Complete tasks.
 
 [DEMO](https://ember-to-do-list.herokuapp.com/todos)
 
@@ -23,6 +23,12 @@ You will need the following things properly installed on your computer.
 
 * `ember serve`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
+* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
+
+## Running Tests
+
+* `ember test`
+* `ember test --server`
 
 ## Further Reading / Useful Links
 
