@@ -16,6 +16,12 @@ module('Acceptance | todos', function(hooks) {
     await visit('/todos');
     await fillIn('input.t-add-item', 'Complete test case');
     await click('button.t-add-item-submit');
-    assert.equal(this.element.querySelector('.t-list-item-2').textContent.trim(), 'Complete test case');
+    assert.equal(this.element.querySelector('.t-todo-list-item-2').textContent.trim(), 'Complete test case');
+  });
+
+  test('delete an item', async function(assert) {
+    await visit('/todos');
+    await click('button.t-todo-delete-item-1');
+    assert.equal(this.element.querySelector('.t-todo-list-group').children.length, 1);
   });
 });

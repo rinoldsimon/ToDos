@@ -16,7 +16,7 @@
 <div class="container">
   <h4>TODO</h4>
   <hr>
-  <div class="list-group">
+  <div class="list-group t-todo-list-group">
     {{#each model as |todo index|}}
       {{#unless todo.isDone}}
         <div class="row">
@@ -24,13 +24,13 @@
             <span>
               {{one-way-checkbox checked=todo.isDone update=(action (route-action "toggleTodo" todo))}}
             </span>
-            <span class="t-list-item-{{index}}">
+            <span class="t-todo-list-item-{{index}}">
               {{todo.description}}
             </span>
           </div>
           <div class="col-md-4">
-            <button class="btn btn-dark" {{action "editTodo" todo}}>Edit</button>
-            <button class="btn btn-light" {{action (route-action "deleteTodo" todo)}}>Delete</button>
+            <button class="btn btn-dark t-todo-edit-item-{{index}}" {{action "editTodo" todo}}>Edit</button>
+            <button class="btn btn-light t-todo-delete-item-{{index}}" {{action (route-action "deleteTodo" todo)}}>Delete</button>
           </div>
         </div>
       {{/unless}}
@@ -42,7 +42,7 @@
 <div class="container">
   <h4>COMPLETED</h4>
   <hr>
-  <div class="list-group">
+  <div class="list-group t-completed-list-group">
     {{#each model as |todo|}}
       {{#if todo.isDone}}
         <div class="row">
@@ -50,13 +50,13 @@
             <span>
               {{one-way-checkbox checked=todo.isDone update=(action (route-action "toggleTodo" todo))}}
             </span>
-            <span>
+            <span class="t-completed-list-item-{{index}}">
               <s>{{todo.description}}</s>
             </span>
           </div>
           <div class="col-md-4">
-            <button class="btn btn-dark" {{action "editTodo" todo}}>Edit</button>
-            <button class="btn btn-light" {{action (route-action "deleteTodo" todo)}}>Delete</button>
+            <button class="btn btn-dark t-completed-edit-item-{{index}}" {{action "editTodo" todo}}>Edit</button>
+            <button class="btn btn-light t-completed-edit-item-{{index}}" {{action (route-action "deleteTodo" todo)}}>Delete</button>
           </div>
         </div>
       {{/if}}
